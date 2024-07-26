@@ -9,8 +9,9 @@ class Stories extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
         height: 200,
-        color: Colors.purple,
+        color: Colors.white,
         child: ListView.builder(
+            padding: EdgeInsets.symmetric(vertical: 10.0, horizontal: 8.0),
             scrollDirection: Axis.horizontal,
             itemCount: 1 + 12,
             itemBuilder: (BuildContext context, int index) {
@@ -28,7 +29,7 @@ class Stories extends StatelessWidget {
                   height: MediaQuery.of(context).size.height,
                   decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(8.0),
-                      color: Color.fromARGB(255, 255, 255, 255)),
+                      color: Color.fromARGB(255, 219, 219, 219)),
                   child: Image.asset(
                     'assets/imagem/tc.png',
                     fit: BoxFit.cover,

@@ -1,9 +1,12 @@
+import 'package:app/models/user_model.dart';
+import 'package:app/widgets/profile_avatar.dart';
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 
 class CreatePostConteiner extends StatelessWidget {
-  //final User currentUser;
+  final User currentUser;
   const CreatePostConteiner({
-    super.key,
+    super.key, required this.currentUser,
   });
 
   @override
@@ -16,11 +19,13 @@ class CreatePostConteiner extends StatelessWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              CircleAvatar(
+              /*CircleAvatar(
                 radius: 20.0,
                 backgroundColor: Color(0xFF969595),
-                backgroundImage: AssetImage('assets/imagem/tc.png'),
-              ),
+                //backgroundImage: AssetImage('assets/imagem/tc.png'),
+                backgroundImage: CachedNetworkImageProvider(currentUser.imageUrl),
+              ),*/
+              ProfileAvatar(imageUrl: currentUser.imageUrl),
               SizedBox(
                 width: 15.0,
               ),

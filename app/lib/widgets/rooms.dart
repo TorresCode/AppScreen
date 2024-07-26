@@ -1,17 +1,22 @@
+import 'package:app/models/models.dart';
+import 'package:app/widgets/profile_avatar.dart';
 import 'package:flutter/material.dart';
 
 class Rooms extends StatelessWidget {
-  final List onlineUsers;
+  final List<User> onlineUsers;
   const Rooms({super.key, required this.onlineUsers});
 
   @override
   Widget build(BuildContext context) {
+    // Log the online users data
+    print("Online users: $onlineUsers");
     return Container(
       height: 60.0,
       color: Colors.white,
       child: ListView.builder(
           padding: EdgeInsets.symmetric(vertical: 10.0, horizontal: 4.0),
           scrollDirection: Axis.horizontal,
+          //itemCount: 1 + onlineUsers.length,
           itemCount: 1 + 20,
           itemBuilder: (BuildContext context, int index) {
             if (index == 0) {
@@ -21,36 +26,18 @@ class Rooms extends StatelessWidget {
               );
             }
 
+            //final User user = onlineUsers[index -1];
             return Stack(children: [
-              /*Container(
-                  margin: EdgeInsets.symmetric(vertical: 2.0, horizontal: 10),
-                  width: 40,
-                  height: 40,
-                  child: /*ClipRRect(
-                    borderRadius: BorderRadius.circular(20.0),
-                    child: Container(
-                      decoration: BoxDecoration(color: Colors.black26),
-                      child: Image.asset('assets/imagem/tc.png'),
-                    ),
-                  )
-                  CircleAvatar(
-                    backgroundImage: AssetImage(
-                      'assets/imagem/tc.png',
-                    ),
-                    backgroundColor: Color(0xFF969595),
-                    radius: 20.0,
-                  ),*/
-                  
-                ),*/
               Container(
                 margin: EdgeInsets.symmetric(vertical: 2.0, horizontal: 5.0),
-                child: CircleAvatar(
-                  backgroundImage: AssetImage(
-                    'assets/imagem/tc.png',
-                  ),
-                  backgroundColor: Color(0xFF969595),
-                  radius: 20.0,
-                ),
+                child: 
+                //ProfileAvatar(imageUrl: user.imageUrl, isActive: true,)
+                CircleAvatar(
+                radius: 20.0,
+                backgroundColor: Color(0xFF969595),
+                backgroundImage: AssetImage('assets/imagem/tc.png'),
+                //backgroundImage: CachedNetworkImageProvider(currentUser.imageUrl),
+              ),
               ),
               Positioned(
                   bottom: 0,

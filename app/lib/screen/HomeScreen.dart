@@ -1,4 +1,8 @@
+import 'package:app/data/data.dart';
+import 'package:app/models/post_model.dart';
+import 'package:app/widgets/circle_buttom.dart';
 import 'package:app/widgets/create_post_conteiner.dart';
+import 'package:app/widgets/post_contaner.dart';
 import 'package:app/widgets/rooms.dart';
 import 'package:app/widgets/stories.dart';
 import 'package:flutter/material.dart';
@@ -27,38 +31,26 @@ class Homescreen extends StatelessWidget {
             centerTitle: false,
             floating: true,
             actions: [
-              Container(
-                margin: EdgeInsets.all(6.0),
-                decoration: BoxDecoration(
-                    color: Colors.grey[200], shape: BoxShape.circle),
-                child: IconButton(
-                  onPressed: () {
-                    print("Search");
-                  },
-                  icon: Icon(Icons.search),
-                  iconSize: 30.0,
-                  color: Colors.black,
-                ),
+              CircleButtom(
+                icon: Icons.search, 
+                iconSize: 30.0, 
+                onPressed: () {
+                print("Search");
+                }
               ),
-              Container(
-                margin: EdgeInsets.all(6.0),
-                decoration: BoxDecoration(
-                    color: Colors.grey[200], shape: BoxShape.circle),
-                child: IconButton(
-                  onPressed: () {
-                    print("Message");
-                  },
-                  icon: Icon(Icons.message_rounded),
-                  iconSize: 30.0,
-                  color: Colors.black,
-                ),
-              )
+              CircleButtom(
+                icon: Icons.message_outlined, 
+                iconSize: 30.0, 
+                onPressed: () {
+                print("Message");
+                }
+              ),
             ],
           ),
 
 
           //TextButtomIcon
-          SliverToBoxAdapter(child: CreatePostConteiner()),
+          SliverToBoxAdapter(child: CreatePostConteiner(currentUser: currentUser)),
           //Last TextButtomIcon
 
 
@@ -82,6 +74,14 @@ class Homescreen extends StatelessWidget {
           ),
           //Last Stories
 
+
+          /*SliverList(delegate: SliverChildBuilderDelegate((context, index) 
+            {
+              final Post post = posts[index];
+              return PostContaner(post: [],);
+            },
+            childCount: posts.length,
+          ))*/
           
 
           //Scroll(Banner)
@@ -137,7 +137,7 @@ class Homescreen extends StatelessWidget {
 
 
           //Scroll Page
-          SliverToBoxAdapter(
+          /*SliverToBoxAdapter(
             child: Container(
               padding: EdgeInsets.all(5.0),
               width: MediaQuery.of(context).size.width,
@@ -166,7 +166,7 @@ class Homescreen extends StatelessWidget {
                 ),
               ),
             ),
-          )
+          )*/
           //LastScroll Page
         ],
       ),
